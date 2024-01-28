@@ -10,3 +10,9 @@ export enum Source {
   REFERRAL = 'Referral',
   PARTNER = 'Partner',
 }
+
+export enum InteractionType {
+  EMAIL = 'Email',
+  CALL = 'Call',
+  MEETING = 'Meeting',
+}

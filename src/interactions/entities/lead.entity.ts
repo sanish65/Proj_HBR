@@ -3,10 +3,12 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { LeadStatus, Source } from '../types';
+import { Interaction } from './interaction.entity';
 
 @Entity()
 export class Lead {
@@ -17,6 +19,7 @@ export class Lead {
   }
 
   @PrimaryGeneratedColumn('uuid')
+  @OneToMany(() => Interaction, (interaction) => interaction.lead_id)
   readonly id: string;
 
   @Column({ type: 'text', nullable: false })
