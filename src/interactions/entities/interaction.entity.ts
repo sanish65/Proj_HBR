@@ -28,10 +28,10 @@ export class Interaction {
     }
   }
 
-  @PrimaryGeneratedColumn('uuid')
-  readonly id: string;
+  @PrimaryGeneratedColumn({ type: 'int' })
+  readonly interaction_id: number;
 
-  @ManyToOne(() => Lead, (lead) => lead.id)
+  @ManyToOne(() => Lead, (lead) => lead.lead_id)
   lead_id: Lead;
 
   @Column({ type: 'text', nullable: false })

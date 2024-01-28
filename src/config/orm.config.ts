@@ -25,8 +25,6 @@ const ormDataSource = {
   },
 } as DataSourceOptions;
 
-console.log(ormDataSource);
-
 export default registerAs('ormConfig', () => ormDataSource);
 
 export const connectionSource = new DataSource(ormDataSource);

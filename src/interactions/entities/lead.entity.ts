@@ -18,9 +18,9 @@ export class Lead {
     }
   }
 
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn({ type: 'int' })
   @OneToMany(() => Interaction, (interaction) => interaction.lead_id)
-  readonly id: string;
+  readonly lead_id: number;
 
   @Column({ type: 'text', nullable: false })
   readonly lead_name: string;
