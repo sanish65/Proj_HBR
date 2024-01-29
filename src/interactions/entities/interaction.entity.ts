@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -29,18 +30,16 @@ export class Interaction {
   }
 
   @PrimaryGeneratedColumn({ type: 'int' })
-  readonly interaction_id: number;
+  readonly id: number;
 
   @ManyToOne(() => Lead, (lead) => lead.lead_id)
-  lead_id: Lead;
-
-  @Column({ type: 'text', nullable: false })
-  readonly email: string;
+  @JoinColumn({ name: 'lead_id' })
+  readonly lead_id: number;
 
   @Column({ type: 'varchar', default: null })
   readonly interaction_type: InteractionType;
 
-  @CreateDateColumn()
+  @Column({ type: Date, default: null })
   readonly interaction_date: Date;
 
   @Column({ type: 'jsonb', nullable: true })
