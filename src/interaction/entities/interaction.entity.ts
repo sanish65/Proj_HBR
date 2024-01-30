@@ -11,12 +11,14 @@ import {
 import { InteractionType } from '../../bulk-data/types';
 import { Lead } from '../../lead/entities/lead.entity';
 
-import { IsString, IsDate } from 'class-validator';
+import { IsString, IsDate, IsOptional } from 'class-validator';
 
-class Details {
+export class Details {
+  @IsOptional()
   @IsDate()
   follow_up_date: Date;
 
+  @IsOptional()
   @IsString()
   priority: string;
 }
