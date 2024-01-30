@@ -8,8 +8,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { InteractionType } from '../types';
-import { Lead } from './lead.entity';
+import { InteractionType } from '../../bulk-data/types';
+import { Lead } from '../../lead/entities/lead.entity';
 
 import { IsString, IsDate } from 'class-validator';
 

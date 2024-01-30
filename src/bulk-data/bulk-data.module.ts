@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
-import { MulterModule } from '@nestjs/platform-express';
+import { Lead } from '../lead/entities/lead.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommandHandlers } from './commands/handlers';
-import { Interaction } from './entities/interaction.entity';
-import { Lead } from './entities/lead.entity';
-import { InteractionsController } from './https/controller/interactions.controller';
-
+import { MulterModule } from '@nestjs/platform-express';
+import { Interaction } from '../interaction/entities/interaction.entity';
+import { UploadCSVController } from './https/controller/upload-csv.controller';
 @Module({
   imports: [
     CqrsModule,
@@ -15,7 +14,7 @@ import { InteractionsController } from './https/controller/interactions.controll
       dest: './uploads',
     }),
   ],
-  controllers: [InteractionsController],
+  controllers: [UploadCSVController],
   providers: [...CommandHandlers],
 })
-export class InteractionsModule {}
+export class BulkDataModule {}

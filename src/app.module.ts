@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import typeormConfig from './config/orm.config';
-import { AppController } from './app.controller';
-import { InteractionsModule } from './interactions/interactions.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppController } from './app.controller';
+import { BulkDataModule } from 'bulk-data/bulk-data.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { LeadModule } from './lead/lead.module';
+import { InteractionModule } from './interaction/interaction.module';
 
 @Module({
   imports: [
@@ -19,7 +21,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       useFactory: async (configService: ConfigService) =>
         configService.get('ormConfig'),
     }),
-    InteractionsModule,
+    BulkDataModule,
+    LeadModule,
+    InteractionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

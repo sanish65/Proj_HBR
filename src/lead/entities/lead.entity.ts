@@ -7,8 +7,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { LeadStatus, Source } from '../types';
-import { Interaction } from './interaction.entity';
+import { LeadStatus, Source } from '../../bulk-data/types';
+import { Interaction } from '../../interaction/entities/interaction.entity';
 
 @Entity()
 export class Lead {

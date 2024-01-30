@@ -1,13 +1,13 @@
 import { Readable } from 'stream';
 import { Repository } from 'typeorm';
 import { readFileSync, unlink } from 'fs';
-import { Lead } from '../../entities/lead.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable, Inject } from '@nestjs/common';
 import { BadRequestException } from '@nestjs/common';
+import { Lead } from '../../../lead/entities/lead.entity';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { BulkSaveInteractionCommand } from '../bulk-save-interaction.command ';
-import { Interaction } from '../../entities/interaction.entity';
+import { Interaction } from '../../../interaction/entities/interaction.entity';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const csv = require('csv-parser');

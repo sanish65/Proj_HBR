@@ -1,10 +1,10 @@
 import { Readable } from 'stream';
 import { Repository } from 'typeorm';
 import { readFileSync, unlink } from 'fs';
-import { Lead } from '../../entities/lead.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable, Inject } from '@nestjs/common';
 import { BadRequestException } from '@nestjs/common';
+import { Lead } from '../../../lead/entities/lead.entity';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { BulkSaveLeadCommand } from '../bulk-save-lead.command';
 
