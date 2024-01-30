@@ -1,7 +1,11 @@
-import { BulkSaveInteractionHandler } from './bulk-save-interaction.handler';
-import { BulkSaveLeadHandler } from './bulk-save-lead.handler';
+import { CreateLeadHandler } from './create-lead.handler';
+import { FindAllLeadHandler } from './find-all-lead.handler';
+import { FindLeadHandler } from './find-lead.handler';
+import { UpdateLeadHandler } from './update-lead.handler';
 
 export const CommandHandlers = [
-  BulkSaveLeadHandler,
-  BulkSaveInteractionHandler,
+  CreateLeadHandler,
+  UpdateLeadHandler,
+  FindLeadHandler,
+  FindAllLeadHandler,
 ];
