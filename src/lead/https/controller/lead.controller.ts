@@ -11,6 +11,8 @@ import { CommandBus } from '@nestjs/cqrs';
 import { CreateLeadCommand } from 'lead/commands/create-lead.command ';
 import { FindAllLeadCommand } from 'lead/commands/find-all-lead.command';
 import { FindLeadCommand } from 'lead/commands/find-lead.command ';
+import { FindLeadsPerSourceCommand } from 'lead/commands/find-leads-per-source.command ';
+import { FindLeadsPerStatusCommand } from 'lead/commands/find-leads-per-status.command';
 import { UpdateLeadCommand } from 'lead/commands/update-lead.command ';
 import { UpdateLeadDto } from 'lead/dto/update-lead.dto';
 import { CreateLeadDto } from '../../dto/create-lead.dto';
@@ -34,13 +36,18 @@ export class LeadController {
     return this.commandBus.execute(new FindLeadCommand(id));
   }
 
+  @Get('source/:source')
+  findLeadsPerSource(@Param('source') source: string) {
+    return this.commandBus.execute(new FindLeadsPerSourceCommand(source));
+  }
+
+  @Get('status/:status')
+  findLeadsPerStatus(@Param('status') status: string) {
+    return this.commandBus.execute(new FindLeadsPerStatusCommand(status));
+  }
+
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateLeadDto: UpdateLeadDto) {
     return this.commandBus.execute(new UpdateLeadCommand(id, updateLeadDto));
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    // return this.leadService.remove(+id);
   }
 }
