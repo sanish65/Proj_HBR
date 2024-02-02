@@ -14,6 +14,7 @@ import { FindInteractionCommand } from 'interaction/commands/find-interaction.co
 import { CreateInteractionCommand } from 'interaction/commands/create-interaction.command ';
 import { UpdateInteractionCommand } from 'interaction/commands/update-interaction.command ';
 import { FindAllInteractionCommand } from 'interaction/commands/find-all-interaction.command';
+import { FindInteractionByLeadIdCommand } from 'interaction/commands/find-interaction-by-leadId.command ';
 
 @Controller('interaction')
 export class InteractionController {
@@ -32,6 +33,11 @@ export class InteractionController {
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.commandBus.execute(new FindInteractionCommand(id));
+  }
+
+  @Get('/lead/:id')
+  findByLeadId(@Param('id') id: number) {
+    return this.commandBus.execute(new FindInteractionByLeadIdCommand(id));
   }
 
   @Patch(':id')

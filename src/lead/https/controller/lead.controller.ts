@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { CreateLeadCommand } from 'lead/commands/create-lead.command ';
+import { DeleteLeadCommand } from 'lead/commands/delete-lead.command ';
 import { FindAllLeadCommand } from 'lead/commands/find-all-lead.command';
 import { FindLeadCommand } from 'lead/commands/find-lead.command ';
 import { FindLeadsPerSourceCommand } from 'lead/commands/find-leads-per-source.command ';
@@ -49,5 +50,10 @@ export class LeadController {
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateLeadDto: UpdateLeadDto) {
     return this.commandBus.execute(new UpdateLeadCommand(id, updateLeadDto));
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: number) {
+    return this.commandBus.execute(new DeleteLeadCommand(id));
   }
 }

@@ -1,4 +1,5 @@
 import { CreateLeadHandler } from './create-lead.handler';
+import { DeleteLeadHandler } from './delete-lead.handler';
 import { FindAllLeadHandler } from './find-all-lead.handler';
 import { FindLeadsPerSourceHandler } from './find-lead-per-source.handler';
 import { FindLeadsPerStatusHandler } from './find-lead-per-status.handler';
@@ -12,4 +13,5 @@ export const CommandHandlers = [
   FindAllLeadHandler,
   FindLeadsPerSourceHandler,
   FindLeadsPerStatusHandler,
+  DeleteLeadHandler,
 ];
