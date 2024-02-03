@@ -4,6 +4,7 @@ import { UpdateInteractionHandler } from './update-interaction.handler';
 import { FindAllInteractionHandler } from './find-all-interaction.handler';
 import { FindAllLeadHandler } from 'lead/commands/handlers/find-all-lead.handler';
 import { FindInteractionByLeadIdHandler } from './find-interaction-by-leadId.handler';
+import { DeleteInteractionHandler } from './delete-interaction.handler';
 
 export const CommandHandlers = [
   CreateInteractionHandler,
@@ -12,4 +13,5 @@ export const CommandHandlers = [
   FindAllLeadHandler,
   UpdateInteractionHandler,
   FindInteractionByLeadIdHandler,
+  DeleteInteractionHandler,
 ];

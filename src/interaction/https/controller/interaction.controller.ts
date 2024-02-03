@@ -15,6 +15,7 @@ import { CreateInteractionCommand } from 'interaction/commands/create-interactio
 import { UpdateInteractionCommand } from 'interaction/commands/update-interaction.command ';
 import { FindAllInteractionCommand } from 'interaction/commands/find-all-interaction.command';
 import { FindInteractionByLeadIdCommand } from 'interaction/commands/find-interaction-by-leadId.command ';
+import { DeleteInteractionCommand } from 'interaction/commands/delete-interaction.command ';
 
 @Controller('interaction')
 export class InteractionController {
@@ -48,7 +49,7 @@ export class InteractionController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    // return this.leadService.remove(+id);
+  delete(@Param('id') id: number) {
+    return this.commandBus.execute(new DeleteInteractionCommand(id));
   }
 }

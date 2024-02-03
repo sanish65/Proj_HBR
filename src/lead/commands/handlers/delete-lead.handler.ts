@@ -15,7 +15,6 @@ export class DeleteLeadHandler implements ICommandHandler<DeleteLeadCommand> {
 
   async execute(command: DeleteLeadCommand): Promise<DeleteResult> {
     try {
-      console.log(command.lead_d);
       return this.leadRepository.delete({
         lead_id: command.lead_d,
       });
