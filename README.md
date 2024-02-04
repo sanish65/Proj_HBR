@@ -31,8 +31,16 @@
 ```bash
 $ npm install
 ```
+## Running the Postgresql
+* create pg database and user 
+* use pg tools to connect locally
+* rough env details in .env.example
+
 
 ## Running the app
+
+* npm install
+* npm start
 
 ```bash
 # development
@@ -47,27 +55,16 @@ $ npm run start:prod
 
 ## Test
 
-```bash
-# unit tests
-$ npm run test
+Test cases weren't covered in this repo yet. Along with Backend deployment with postgres. Due to technical error encountered deployment and test cases has not been performed till the date of publish.
 
-# e2e tests
-$ npm run test:e2e
+## Migrations
+To run migrations
+#npm run typeorm -d migration:run
 
-# test coverage
-$ npm run test:cov
-```
+To create migrations
+#npm run typeorm -d migration:create src/migrations/<<filename>>
 
-## Support
+To revert migrations
+#npm run typeorm -d migration:revert
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
