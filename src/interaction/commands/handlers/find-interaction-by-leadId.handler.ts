@@ -20,12 +20,9 @@ export class FindInteractionByLeadIdHandler
     command: FindInteractionByLeadIdCommand,
   ): Promise<Interaction[]> {
     try {
-      const a = await this.interactionRepository.findBy({
+      return await this.interactionRepository.findBy({
         lead_id: command.id,
       });
-
-      console.log(a);
-      return a;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
