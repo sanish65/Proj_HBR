@@ -1,9 +1,0 @@
-{
-    "functions": {
-      "api/**/*.ts": {
-        "runtime": "@now/node14",
-        "memory": 1024
-      }
-    }
-  }
-  
